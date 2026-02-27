@@ -1,0 +1,7 @@
+base_url: "https://demowebshop.tricentis.com"
+browser: "chrome"
+valid_email: "anonymous@gamil.com"
+valid_password: "Anonymous@123"
+invalid_email: "wronguser@gamil.com"
+invalid_password: "wrongpass"
+
