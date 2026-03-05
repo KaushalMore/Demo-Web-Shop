@@ -21,16 +21,16 @@ class TestPurchaseFlow(BaseTest):
         login_page.login(self.config.get("valid_email"), self.config.get("valid_password"))
 
         # Books
-        books_page.open_books()
-        books_page.sort_by("Position")
+        books_page.click_books()
+        books_page.select_sort_by("Position")
         books_page.set_page_size("12")
-        books_page.set_view_mode("List")
-        books_page.open_first_product()
+        books_page.select_view_mode("List")
+        books_page.click_first_product()
 
         # Product
         assert "Computing and Internet" in product_page.get_product_name()
         product_page.set_quantity(2)
-        product_page.add_to_cart()
+        product_page.click_add_to_cart()
 
         # Cart
         cart_page.open_cart()

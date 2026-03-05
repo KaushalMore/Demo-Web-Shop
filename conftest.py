@@ -9,13 +9,16 @@ import allure
 def config():
     return ConfigReader.read_config()
 
-
-@pytest.fixture
-def driver(config):
-    browser = config.get("browser")
+@pytest.fixture(params=ConfigReader.read_config()["browser"])
+def driver(config, request):
+    browser = request.param
 
     if browser == "chrome":
         driver = webdriver.Chrome()
+    elif browser == "edge":
+        driver = webdriver.Edge()
+    elif browser == "firefox":
+        driver = webdriver.Firefox()
     else:
         raise Exception(f"Invalid Browser {browser}")
 

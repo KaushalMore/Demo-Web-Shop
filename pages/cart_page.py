@@ -12,10 +12,10 @@ class CartPage(BasePage):
         self.click(self.CART_LINK)
 
     def select_country(self, country):
-        self.select(self.COUNTRY_DROPDOWN, country)
+        self.select_by_visible_text(self.COUNTRY_DROPDOWN, country)
 
     def select_state(self, state):
-        self.select(self.STATE_DROPDOWN, state)
+        self.select_by_visible_text(self.STATE_DROPDOWN, state)
 
     def estimate_shipping(self):
         self.click(self.ESTIMATE_SHIPPING_BUTTON)
