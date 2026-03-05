@@ -1,7 +1,11 @@
+import pytest
+
 from pages.login_page import LoginPage
 from tests.base_test import BaseTest
 
+
 class TestLogin(BaseTest):
+    @pytest.mark.regression
     def test_valid_login(self):
         login_page = LoginPage(self.driver)
 
@@ -10,6 +14,7 @@ class TestLogin(BaseTest):
 
         assert self.config.get("valid_email") in login_page.get_success_message()
 
+    @pytest.mark.regression
     def test_invalid_login(self):
         login_page = LoginPage(self.driver)
 

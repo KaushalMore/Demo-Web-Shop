@@ -15,7 +15,6 @@ class TestBooks(BaseTest):
     def test_verify_navigation_to_book_page(self):
         books_page = BooksPage(self.driver)
 
-        allure.dynamic.story(self.driver)
         with allure.step("Opening Demo Web Shop homepage."):
             books_page.open_home_page(self.config.get("base_url"))
 
@@ -30,8 +29,6 @@ class TestBooks(BaseTest):
     @pytest.mark.smoke
     def test_add_book_to_shopping_cart(self):
         books_page = BooksPage(self.driver)
-
-        allure.dynamic.story(self.driver)
 
         with allure.step("Opening Demo Web Shop books page."):
             books_page.open_books_page(self.config.get("base_url"))
@@ -48,7 +45,6 @@ class TestBooks(BaseTest):
     def test_verify_sorting_functionality(self):
         books_page = BooksPage(self.driver)
 
-        allure.dynamic.story(self.driver)
         with allure.step("Opening Demo Web Shop books page."):
             books_page.open_books_page(self.config.get("base_url"))
 
@@ -67,7 +63,6 @@ class TestBooks(BaseTest):
     def test_change_display_page_size(self):
         books_page = BooksPage(self.driver)
 
-        allure.dynamic.story(self.driver)
         with allure.step("Opening Demo Web Shop books page."):
             books_page.open_books_page(self.config.get("base_url"))
 
@@ -85,7 +80,6 @@ class TestBooks(BaseTest):
         books_page = BooksPage(self.driver)
         product_page = ProductPage(self.driver)
 
-        allure.dynamic.story(self.driver)
         with allure.step("Opening Demo Web Shop books page."):
             books_page.open_books_page(self.config.get("base_url"))
 

@@ -1,3 +1,5 @@
+import pytest
+
 from tests.base_test import BaseTest
 from pages.login_page import LoginPage
 from pages.books_page import BooksPage
@@ -9,6 +11,7 @@ from time import sleep
 
 
 class TestPurchaseFlow(BaseTest):
+    @pytest.mark.regression
     def test_purchase_book(self):
         login_page = LoginPage(self.driver)
         books_page = BooksPage(self.driver)
@@ -23,7 +26,7 @@ class TestPurchaseFlow(BaseTest):
         # Books
         books_page.click_books()
         books_page.select_sort_by("Position")
-        books_page.set_page_size("12")
+        books_page.select_page_size("12")
         books_page.select_view_mode("List")
         books_page.click_first_product()
 

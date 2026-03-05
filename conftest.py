@@ -9,9 +9,9 @@ import allure
 def config():
     return ConfigReader.read_config()
 
-@pytest.fixture(params=ConfigReader.read_config()["browser"])
-def driver(config, request):
-    browser = request.param
+@pytest.fixture()
+def driver(config):
+    browser = config["browser"]
 
     if browser == "chrome":
         driver = webdriver.Chrome()
@@ -25,7 +25,7 @@ def driver(config, request):
     driver.maximize_window()
     yield driver
 
-    driver.close()
+    driver.quit()
 
 
 @pytest.hookimpl(hookwrapper=True)
